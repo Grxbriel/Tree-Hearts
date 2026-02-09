@@ -62,6 +62,13 @@
             canvas.unbind("click");
             canvas.unbind("mousemove");
             canvas.removeClass('hand');
+            // Play audio on user interaction for Chrome compatibility
+            var audio = document.getElementById('media');
+            if (audio) {
+                audio.play().catch(function(error) {
+                    console.log('Audio autoplay failed:', error);
+                });
+            }
         }
     }).mousemove(function (e) {
         var offset = canvas.offset(), x, y;
@@ -127,7 +134,7 @@
 
     var textAnimate = eval(Jscex.compile("async", function () {
         var together = new Date();
-        together.setFullYear(2024, 3, 26);
+        together.setFullYear(2025, 11, 31);
         together.setHours(0);
         together.setMinutes(0);
         together.setSeconds(0);
